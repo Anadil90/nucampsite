@@ -2,11 +2,8 @@
 import { Col, Row } from 'reactstrap';
 import CampsiteCard from './CampsiteCard';
 import { CAMPSITES } from '../app/shared/CAMPSITES';
-import { selectAllCampsites } from '../features/campsites/campsitesSlice';
-import { campsitesAtRandom} from '../features/campsites/campsitesSlice';
 
 const CampsitesList = () => {
-    const returnAllCampsites = selectAllCampsites();
     //render the Campsitecard component in a bootstrap grid
     return (
         <Row>
