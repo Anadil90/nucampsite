@@ -2,8 +2,8 @@
 import { Col, Row } from 'reactstrap';
 import CampsiteCard from './CampsiteCard';
 import { CAMPSITES } from '../app/shared/CAMPSITES';
-import { selectAllCampsites } from './campsitesSlice';
-import { campsitesAtRandom} from './campsitesSlice';
+import { selectAllCampsites } from '../features/campsites/campsitesSlice';
+import { campsitesAtRandom} from '../features/campsites/campsitesSlice';
 
 const CampsitesList = () => {
     const returnAllCampsites = selectAllCampsites();
