@@ -1,5 +1,32 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { COMMENTS } from '../../app/shared/COMMENTS';
 
-export const selectComnmentsByCampsiteId = (campsiteId) => {
-    return COMMENTS.filter((comment) => comment.campsiteId === parseInt(campsiteId));
-}
+const initialState = {
+    commentsArray: COMMENTS
+};
+
+const commentsSlice = createSlice({
+    name: 'comments',
+    initialState,
+    reducers: {
+        addComment: (state, action) => { //Add Comment Action
+            console.log('addComment action payload', action.payload)
+            console.log('addComment state.commentsArray', state.commentsArray)
+            const newComment = {
+                id: state.commentsArray.lenth + 1,
+                ...action.payload
+            }
+            state.commentsArray.push(newComment);
+        }
+    }
+});
+
+export const commentsReducer = commentsSlice.reducer;
+
+export const { addComment } = commentsSlice.actions; //export action creator
+
+export const selectCommentsByCampsiteId = (campsiteId) => (state) => {
+    return state.comments.commentsArray.filter(
+        (comment) => comment.campsiteId === parseInt(campsiteId)
+    );
+};
