@@ -13,7 +13,7 @@ const commentsSlice = createSlice({
             console.log('addComment action payload', action.payload)
             console.log('addComment state.commentsArray', state.commentsArray)
             const newComment = {
-                id: state.commentsArray.lenth + 1,
+                id: state.commentsArray.length + 1,
                 ...action.payload
             }
             state.commentsArray.push(newComment);
